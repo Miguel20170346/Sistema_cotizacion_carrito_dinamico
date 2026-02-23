@@ -1,49 +1,53 @@
-<?php
-session_start();
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Sistema de Cotización</title>
+    <title>ServicePOO</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="assets/css/services-catalog.css">
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container d-flex justify-content-between">
+<!-- 🔵 HERO / BANNER -->
+<section class="hero-section text-white text-center py-5">
+    <div class="container">
+        <h1 class="fw-bold display-5">
+            🌐 Servicios Disponibles
+        </h1>
+        <p class="lead">
+            Tu sistema profesional de cotización de servicios
+        </p>
 
-        <span class="navbar-brand">
-            Sistema de Cotización de Servicios
-        </span>
-
-        <div>
-            <button class="btn btn-light position-relative" id="cartButton">
-                🛒 Carrito
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                      id="cart-count">
-                    0
-                </span>
-            </button>
-
-            <a href="pages/view-quotes.php" class="btn btn-outline-light ms-2">
-                Ver Cotizaciones
-            </a>
+        <!-- Caja flotante estilo AutoPOO -->
+        <div class="stats-box mt-4">
+            <div>
+                <h4>12</h4>
+                <small>Servicios Disponibles</small>
+            </div>
+            <div>
+                <h4>3</h4>
+                <small>Categorías</small>
+            </div>
+            <div>
+                <h4>100%</h4>
+                <small>Por expertos</small>
+            </div>
         </div>
-
     </div>
-</nav>
+</section>
 
-<div class="container mt-4">
-    <?php include "pages/services-catalog.php"; ?>
-</div>
+<!-- 🟣 CATÁLOGO -->
+<section class="catalog-section py-5">
+    <div class="container">
+        <?php include "pages/services-catalog.php"; ?>
+    </div>
+</section>
 
 <script src="assets/js/services-catalog.js"></script>
-
 </body>
 </html>
