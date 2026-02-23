@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$_SESSION['cart'] = [];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,6 +16,23 @@
     <link rel="stylesheet" href="assets/css/services-catalog.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+       Comprometidos con el deber
+    </a>
+
+    <div class="ms-auto">
+      <button class="btn btn-outline-light position-relative">
+        🛒 Carrito
+        <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          0
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>
 
 <!-- 🔵 HERO / BANNER -->
 <section class="hero-section text-white text-center py-5">
