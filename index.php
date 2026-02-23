@@ -16,14 +16,26 @@ session_start();
 <body>
 
 <nav class="navbar navbar-dark bg-primary">
-    <div class="container">
-        <span class="navbar-brand mb-0 h1">
+    <div class="container d-flex justify-content-between">
+
+        <span class="navbar-brand">
             Sistema de Cotización de Servicios
         </span>
 
-        <a href="pages/view-quotes.php" class="btn btn-light">
-            Ver Cotizaciones
-        </a>
+        <div>
+            <button class="btn btn-light position-relative" id="cartButton">
+                🛒 Carrito
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                      id="cart-count">
+                    0
+                </span>
+            </button>
+
+            <a href="pages/view-quotes.php" class="btn btn-outline-light ms-2">
+                Ver Cotizaciones
+            </a>
+        </div>
+
     </div>
 </nav>
 
