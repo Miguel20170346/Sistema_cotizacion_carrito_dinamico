@@ -59,9 +59,17 @@ if (!isset($_SESSION['cart'])) {
                 <h4>3</h4>
                 <small>Categorías</small>
             </div>
-            <div>
-                <h4>100%</h4>
-                <small>Por expertos</small>
+            <div class="d-flex align-items-center gap-3">
+                <div>
+                    <h4>100%</h4>
+                    <small>Por expertos</small>
+                </div>
+                <select id="category-filter" class="form-select" style="max-width: 280px;">
+                    <option value="">Todas las categorías</option>
+                    <option value="Desarrollo Web">Desarrollo Web</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Soporte Técnico">Soporte Técnico</option>
+                </select>
             </div>
         </div>
     </div>

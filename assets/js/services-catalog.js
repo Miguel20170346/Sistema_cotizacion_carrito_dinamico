@@ -1,6 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
   const cartContent = document.getElementById("cart-content");
   const cartTotals = document.getElementById("cart-totals");
+  const categoryFilter = document.getElementById("category-filter");
+
+  // Función para filtrar servicios por categoría
+  function filterByCategory(category) {
+    const cards = document.querySelectorAll(".custom-card");
+    cards.forEach((card) => {
+      const categoryElement = card.querySelector(".text-primary");
+      if (!category || categoryElement.textContent.trim() === category) {
+        card.parentElement.style.display = "block";
+      } else {
+        card.parentElement.style.display = "none";
+      }
+    });
+  }
+
+  // Evento: Cambiar categoría en el selector
+  if (categoryFilter) {
+    categoryFilter.addEventListener("change", function () {
+      filterByCategory(this.value);
+    });
+  }
 
   // Función para actualizar la vista del carrito
   function refreshCartUI(cartData) {
