@@ -26,11 +26,10 @@ if (!isset($_SESSION['cart'])) {
     </a>
 
     <div class="ms-auto d-flex align-items-center">
-      <a href="pages/view-quotes.php" class="btn btn-link text-light text-decoration-none me-4 fs-5 nav-link-custom">
-          📜 Historial
-      </a>
-
-      <button class="btn btn-outline-light position-relative btn-lg px-4" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">
+        <a href="pages/view-quotes.php" class="btn btn-outline-light btn-lg me-3 shadow-sm">
+                <span class="me-1">📄</span> Historial
+        </a>
+        <button class="btn btn-outline-light position-relative btn-lg px-4" data-bs-toggle="offcanvas" data-bs-target="#cartPanel">
         <span class="me-1">🛒</span> Carrito
         <span id="cart-count" 
               class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -92,7 +91,7 @@ if (!isset($_SESSION['cart'])) {
     </div>
     
     <hr>
-    
+
     <div id="cart-totals" class="d-none">
         <div class="d-flex justify-content-between mb-1">
             <span>Subtotal:</span>
@@ -111,13 +110,48 @@ if (!isset($_SESSION['cart'])) {
             <span id="total-val" class="text-success">$0.00</span>
         </div>
         
-        <button class="btn btn-primary w-100 mt-4 fw-bold py-2" id="btn-quote">
-            Siguiente: Datos del Cliente
-        </button>
+    <form id="checkout-form" class="mt-3 border-top pt-3 d-none">
+        <h6 class="fw-bold">Datos del Cliente</h6>
+        <input type="text" name="nombre" class="form-control form-control-sm mb-2" placeholder="Nombre completo" required>
+        <input type="text" name="empresa" class="form-control form-control-sm mb-2" placeholder="Empresa (Opcional)">
+        <input type="email" name="email" class="form-control form-control-sm mb-2" placeholder="Correo electrónico" required>
+        <input type="tel" name="telefono" class="form-control form-control-sm mb-3" placeholder="Teléfono" required>
+        <button type="submit" class="btn btn-primary w-100 fw-bold py-2">📄 Generar Cotización</button>
+    </form>
+        
     </div>
   </div>
 </div>
 
+<div class="modal fade" id="quoteModal" tabindex="-1" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-start">
+      <div class="modal-body p-4">
+        <div class="text-center mb-4">
+            <h1 class="text-success mb-2">✅</h1>
+            <h4 class="fw-bold">¡Cotización Creada!</h4>
+        </div>
+        
+        <div class="bg-light border rounded p-3 mb-4">
+            <h6 class="fw-bold border-bottom pb-2 mb-3">Detalles de la Cotización</h6>
+            <p class="mb-1"><strong>Código:</strong> <span class="badge bg-primary fs-6" id="modal-codigo"></span></p>
+            <p class="mb-1"><strong>Cliente:</strong> <span id="modal-cliente"></span></p>
+            <p class="mb-1"><strong>Empresa:</strong> <span id="modal-empresa"></span></p>
+            <hr class="my-2">
+            <p class="mb-1 small"><strong>Emisión:</strong> <span id="modal-fecha"></span></p>
+            <p class="mb-0 small"><strong>Válida hasta:</strong> <span id="modal-validez" class="text-danger fw-bold"></span></p>
+        </div>
+
+        <div class="d-flex justify-content-center gap-2">
+            <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Cerrar</button>
+            <a href="pages/view-quotes.php" class="btn btn-primary px-4">Ver Historial</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/services-catalog.js"></script>
 </body>
