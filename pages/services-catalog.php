@@ -31,6 +31,11 @@ $initialCartData = json_encode([
                 <!-- Nombre -->
                 <h4 class="fw-bold"><?= $service->getNombre(); ?></h4>
                 <p class="text-primary fw-semibold"><?= $service->getCategoria(); ?></p>
+                
+                <!-- Descripción -->
+                <p class="text-muted small mb-3">
+                    <?= $service->getDescripcion(); ?>
+                </p>
 
                 <!-- Caja gris tipo especificaciones -->
                 <div class="info-box d-flex justify-content-between">

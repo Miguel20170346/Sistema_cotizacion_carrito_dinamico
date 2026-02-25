@@ -51,7 +51,7 @@ $quotes = $_SESSION['quotes'] ?? [];
                     ?>
                         <tr>
                             <td><span class="badge bg-primary fs-6"><?= $q['codigo'] ?></span></td>
-                            <td><?= date('d/m/Y h:i A', strtotime($q['fecha'])) ?></td>
+                            <td><?= htmlspecialchars($q['cliente']['nombre']) ?></td>
                             <td><span class="text-danger fw-bold"><?= date('d/m/Y h:i A', strtotime($q['validez'])) ?></span></td>
                             <td><?= date('d/m/Y h:i A', strtotime($q['fecha'])) ?></td>
                             <td><?= $totalItems ?> servicios</td>
